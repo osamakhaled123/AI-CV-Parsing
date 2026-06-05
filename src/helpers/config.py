@@ -6,6 +6,8 @@ class Settings(BaseSettings):
     OPENROUTER_MODEL : str
     OPENROUTER_BASE_URL : str
     
+    FILE_ALLOWED_TYPES: list
+    FILE_MAX_SIZE: int
     FILE_DEFAULT_CHUNCK_SIZE: int
     
     
