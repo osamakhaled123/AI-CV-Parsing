@@ -33,7 +33,7 @@ class DataController(BaseController):
         cleaned_file_name = self.get_clean_file_name(orig_file_name=orig_file_name)
         
         job_controller = JobController()
-        job_path = job_controller.get_job_path(job_id=job_id)
+        job_path = job_controller.get_files_path(job_id=job_id)
         
         new_file_name = random_key + "_" + cleaned_file_name
         

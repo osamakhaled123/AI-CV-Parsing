@@ -1,11 +1,13 @@
 from pathlib import Path
 import os
 
-directory_path = os.path.dirname(os.getcwd())
-file_path = os.path.join(directory_path+"/prompts/job_description.txt")
+directory_path = os.path.dirname(os.path.dirname(__file__))
+job_description_path = os.path.join(directory_path, "prompts")
+job_description_path = os.path.join(job_description_path, "job_description.txt")
+
 
 def load_job_description() -> str:
-    path = Path(file_path)
+    path = Path(job_description_path)
 
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
@@ -27,8 +29,10 @@ Candidate CV:
 {cv_text}
 
 Return STRICT JSON with:
-- matching Experience score 
-- matching Summary score
-- matching Projects score
-- matching Education score
+- matching Experience score, called "Experience"
+- matching Summary score, called "Summary"
+- matching Projects score, called "Projects"
+- matching Education score, called "Education"
+
+Prepare your response to ber strictly as described above in every response, so not to change whenever requested.
 """

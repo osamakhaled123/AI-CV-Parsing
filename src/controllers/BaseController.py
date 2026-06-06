@@ -9,6 +9,7 @@ class BaseController:
         self.base_dir = os.path.dirname( os.path.dirname(__file__) )
         self.assets_dir = os.path.join(self.base_dir, "assets")
         self.files_dir = os.path.join(self.assets_dir, "files")
+        self.cvs_dir = os.path.join(self.assets_dir, "CVs")
         
         
     def generate_random_string(self, length: int = 12):

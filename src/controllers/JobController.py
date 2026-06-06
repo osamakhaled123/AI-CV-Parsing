@@ -6,10 +6,18 @@ class JobController(BaseController):
         super().__init__()
         
     
-    def get_job_path(self, job_id: str):
-        job_dir = os.path.join(self.files_dir, job_id)
+    def get_files_path(self, job_id: str):
+        file_dir = os.path.join(self.files_dir, job_id)
          
-        if not os.path.exists(job_dir):
-            os.makedirs(job_dir)
+        if not os.path.exists(file_dir):
+            os.makedirs(file_dir)
         
-        return job_dir   
+        return file_dir   
+    
+    def get_cvs_path(self, job_id: str):
+        cv_dir = os.path.join(self.cvs_dir, job_id)
+        
+        if not os.path.exists(cv_dir):
+            os.makedirs(cv_dir)
+        
+        return cv_dir

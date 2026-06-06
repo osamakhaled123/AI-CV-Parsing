@@ -9,7 +9,9 @@ import logging
 
 logger = logging.getLogger("uvicorn.error")
 
-api_route = APIRouter()
+api_route = APIRouter(
+    tags=["CV Upload"]
+)
 
 
 @api_route.post("/upload_file/{job_id}")

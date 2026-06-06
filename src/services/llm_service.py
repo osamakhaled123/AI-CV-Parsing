@@ -2,19 +2,19 @@ import requests
 import json
 from helpers.config import get_settings
 
-settings = get_settings()
+app_settings = get_settings()
 
 
 def call_llm(prompt: str):
 
     response = requests.post(
-        f"{settings.OPENROUTER_BASE_URL}/chat/completions",
+        f"{app_settings.OPENROUTER_BASE_URL}/chat/completions",
         headers={
-            "Authorization": f"Bearer {settings.API_KEY}",
+            "Authorization": f"Bearer {app_settings.API_KEY}",
             "Content-Type": "application/json"
         },
         json={
-            "model": settings.OPENROUTER_MODEL,
+            "model": app_settings.OPENROUTER_MODEL,
             "messages": [
                 {
                     "role": "user",
