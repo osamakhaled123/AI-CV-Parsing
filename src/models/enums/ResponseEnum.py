@@ -9,3 +9,4 @@ class ResponseSignal(Enum):
     FILE_UPLOAD_FAILED = "file_upload_failed"
     
     NO_CVS_FOUND =  "no_CVs_found"
+    CVS_PARSED_SUCCESS = "CVs_parsed_successfully"

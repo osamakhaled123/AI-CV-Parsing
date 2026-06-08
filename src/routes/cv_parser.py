@@ -1,11 +1,9 @@
 from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
 import os
-from services.cv_extractor import extract_text
-from services.prompt_builder import load_job_description, build_prompt
-from services.llm_service import call_llm
 from controllers import JobController
 from models import ResponseSignal
+import json
 
 router = APIRouter(
     tags=["CV Parser"]
@@ -15,6 +13,19 @@ router = APIRouter(
 async def parse_cv(job_id: str):
     
     job_controller = JobController()
+    
+    parsed_cvs_dir_path = job_controller.get_parsed_cvs_dir_path(job_id=job_id)
+    
+    json_file = os.path.join(
+        parsed_cvs_dir_path,
+        "parsed_cvs.json"
+    )
+    
+    if not os.path.exists(json_file):
+        with open(json_file, "w", encoding="utf-8") as f:
+            json.dump([], f)  # creates an empty JSON array
+    
+    
     UPLOAD_DIR = job_controller.get_files_path(job_id=job_id)
     if len(os.listdir(UPLOAD_DIR)) == 0:
         return JSONResponse(
@@ -24,25 +35,9 @@ async def parse_cv(job_id: str):
             }
         )
 
-    CVs_path = os.path.join(
-        UPLOAD_DIR,
-        job_id
-    )
-    
-    job_description = load_job_description()
-
-    for file in os.listdir(UPLOAD_DIR):
-        
-        cv_text = extract_text(str(CVs_path))
-
-    prompt = build_prompt(
-        cv_text=cv_text,
-        job_description=job_description
-    )
-
-    llm_response = call_llm(prompt)
-
+    job_controller.parsing_CVs(UPLOAD_DIR=UPLOAD_DIR, 
+                               json_file=json_file)
     return {
         "success": True,
-        "llm_response": llm_response
+        "llm_response": ResponseSignal.CVS_PARSED_SUCCESS.value
     }

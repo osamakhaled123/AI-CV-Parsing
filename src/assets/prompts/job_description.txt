@@ -1,0 +1,14 @@
+BlackStone eIT is looking for a skilled AI Engineer to join our innovative team. As an AI Engineer, you will design, develop, and implement artificial intelligence solutions that address complex business challenges. You will work closely with data scientists, engineers, and stakeholders to build scalable AI models and integrate them into product offerings.
+
+This position offers a great opportunity to contribute to cutting-edge AI projects and help drive the adoption of AI technologies within our organization. You will be involved in all stages of AI project development, from data collection and preprocessing to model training, deployment, and monitoring.
+
+Requirements
+
+    3+ years of experience in AI or machine learning engineering roles
+    Proficiency in programming languages such as Python and experience with AI/ML libraries like TensorFlow, PyTorch, or Scikit-learn
+    Knowledge of AI model deployment and monitoring best practices
+    Understanding of data processing, feature engineering, and model evaluation techniques
+    Bachelor's degree in Computer Science, Data Science, Artificial Intelligence, or a related field
+    Strong problem-solving abilities and excellent communication skills
+    Experience with cloud computing platforms (AWS, Azure, or GCP) is preferred
+    Familiarity with containerization tools such as Docker is a plus

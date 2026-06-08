@@ -10,6 +10,7 @@ class BaseController:
         self.assets_dir = os.path.join(self.base_dir, "assets")
         self.files_dir = os.path.join(self.assets_dir, "files")
         self.cvs_dir = os.path.join(self.assets_dir, "CVs")
+        self.parsed_cvs_dir = os.path.join(self.assets_dir, "parsed_CVs")
         
         
     def generate_random_string(self, length: int = 12):

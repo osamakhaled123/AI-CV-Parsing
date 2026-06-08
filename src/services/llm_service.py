@@ -31,12 +31,14 @@ def call_llm(prompt: str):
     # Remove markdown json fences
     content = content.replace("```json", "").replace("```", "").strip()
     
-    return content
+    #return content
 
-    # # Convert string -> Python dict
-    # parsed_json = json.loads(content)
+    # Convert string -> Python dict
+    parsed_json = json.loads(content)
 
-    # # Extract only scores
-    # scores = parsed_json["matching_scores"]
+    # Extract only scores
+    
+    #scores = parsed_json["Matching scores"]
 
-    # return scores
+    return {"filename":parsed_json[-1]["filename"],
+            "Matching_scores":parsed_json[-1]["Matching scores"]}

@@ -1,0 +1,47 @@
+[
+    {
+        "filename": "Carlos_Mendoza_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.6,
+            "Summary": 0.7,
+            "Projects": 0.8,
+            "Education": 1.0
+        }
+    },
+    {
+        "filename": "Ryo_Tanaka_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.5,
+            "Summary": 0.6,
+            "Projects": 0.7,
+            "Education": 0.8
+        }
+    },
+    {
+        "filename": "Lena_Fischer_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.6,
+            "Summary": 0.7,
+            "Projects": 0.8,
+            "Education": 1.0
+        }
+    },
+    {
+        "filename": "Sara_El-Sayed_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.7,
+            "Summary": 0.8,
+            "Projects": 0.85,
+            "Education": 0.9
+        }
+    },
+    {
+        "filename": "Aisha_Ndiaye_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.6,
+            "Summary": 0.7,
+            "Projects": 0.75,
+            "Education": 0.9
+        }
+    }
+]
