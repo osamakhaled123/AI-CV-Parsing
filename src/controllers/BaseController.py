@@ -2,6 +2,7 @@ from helpers.config import get_settings, Settings
 import os
 import random
 import string
+from models import ProcessingEnum
 
 class BaseController:
     def __init__(self):
@@ -13,6 +14,7 @@ class BaseController:
         self.parsed_cvs_dir = os.path.join(self.assets_dir, "parsed_CVs")
         
         
-    def generate_random_string(self, length: int = 12):
-        return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
+    def generate_random_string(self):
+        return ''.join(random.choices(string.ascii_lowercase + string.digits, 
+                                      k=ProcessingEnum.RANDOM_KEY_LEN.value))
     

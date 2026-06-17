@@ -4,7 +4,7 @@ import json
 from services.cv_extractor import extract_text
 from services.prompt_builder import load_job_description, build_prompt
 from services.llm_service import call_llm
-from models import ResponseSignal
+from models import ResponseSignal, ProcessingEnum
 
 class JobController(BaseController):
     def __init__(self):
@@ -58,7 +58,7 @@ class JobController(BaseController):
             with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 filenames = self.get_files_names(json_file=json_file)
-                if file[13:] in filenames:
+                if file[ProcessingEnum.RANDOM_KEY_LEN.value+1:] in filenames:
                     break
             
             
