@@ -59,7 +59,7 @@ class JobController(BaseController):
                 data = json.load(f)
                 filenames = self.get_files_names(json_file=json_file)
                 if file[ProcessingEnum.RANDOM_KEY_LEN.value+1:] in filenames:
-                    break
+                    continue
             
             
             file_path = os.path.join(

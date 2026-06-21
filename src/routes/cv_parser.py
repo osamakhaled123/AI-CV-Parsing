@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 @router.post("/parse/{job_id}")
-async def parse_cv(job_id: str):
+def parse_cv(job_id: str):
     
     job_controller = JobController()
     
