@@ -1,11 +1,11 @@
 [
     {
-        "filename": "Ryo_Tanaka_CV.pdf",
+        "filename": "Carlos_Mendoza_CV.pdf",
         "Matching_scores": {
-            "Experience": 0.5,
-            "Summary": 0.6,
-            "Projects": 0.7,
-            "Education": 0.9
+            "Experience": 0.7,
+            "Summary": 0.8,
+            "Projects": 0.85,
+            "Education": 1.0
         }
     },
     {
@@ -18,21 +18,30 @@
         }
     },
     {
-        "filename": "Lena_Fischer_CV.pdf",
+        "filename": "Osama_Khaled_CV.pdf",
         "Matching_scores": {
-            "Experience": 0.6,
-            "Summary": 0.7,
-            "Projects": 0.8,
-            "Education": 1.0
+            "Experience": 0.85,
+            "Summary": 0.9,
+            "Projects": 0.95,
+            "Education": 0.9
         }
     },
     {
-        "filename": "Sara_ElSayed_CV.pdf",
+        "filename": "Sara_El-Sayed_CV.pdf",
         "Matching_scores": {
-            "Experience": 0.6,
+            "Experience": 0.7,
+            "Summary": 0.8,
+            "Projects": 0.85,
+            "Education": 0.9
+        }
+    },
+    {
+        "filename": "Ryo_Tanaka_CV.pdf",
+        "Matching_scores": {
+            "Experience": 0.5,
             "Summary": 0.7,
             "Projects": 0.8,
-            "Education": 1.0
+            "Education": 0.9
         }
     }
 ]

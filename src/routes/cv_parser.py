@@ -35,7 +35,7 @@ def parse_cv(job_id: str):
             }
         )
 
-    job_controller.parsing_CVs(UPLOAD_DIR=UPLOAD_DIR, 
+    return job_controller.parsing_CVs(UPLOAD_DIR=UPLOAD_DIR, 
                                json_file=json_file)
     return {
         "success": True,

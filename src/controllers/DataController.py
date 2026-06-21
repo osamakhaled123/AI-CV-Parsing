@@ -27,13 +27,13 @@ class DataController(BaseController):
 
         return cleaned_file_name        
         
-    def generate_unique_file_path(self, orig_file_name: str, job_id: str):
-        
-        random_key = self.generate_random_string()
-        cleaned_file_name = self.get_clean_file_name(orig_file_name=orig_file_name)
-        
+    async def generate_unique_file_path(self, file: UploadFile, job_id: str):
         job_controller = JobController()
         job_path = job_controller.get_files_path(job_id=job_id)
+        
+        cleaned_file_name = self.get_clean_file_name(orig_file_name=file.filename)
+        
+        random_key = await self.get_phone_number(file=file)
         
         new_file_name = random_key + "_" + cleaned_file_name
         
@@ -41,14 +41,5 @@ class DataController(BaseController):
             job_path,
             random_key + "_" + cleaned_file_name
         )
-        
-        while os.path.exists(new_file_path):
-            random_key = self.generate_random_string()
-            new_file_name = random_key + "_" + cleaned_file_name
-            
-            new_file_path(
-                job_path,
-                new_file_name
-            )
         
         return new_file_path, new_file_name 

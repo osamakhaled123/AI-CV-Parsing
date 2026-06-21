@@ -30,9 +30,18 @@ async def Upload_file(file: UploadFile,
             }
         )
     
-    new_file_path, file_id = data_controller.generate_unique_file_path(
-        orig_file_name=file.filename,
+    new_file_path, file_id = await data_controller.generate_unique_file_path(
+        file=file,
         job_id=job_id)
+    
+    if os.path.exists(new_file_path):
+        return JSONResponse(
+            status_code=status.HTTP_409_CONFLICT,
+            content={
+            "status": "error",
+            "message": "File already uploaded",
+            "file_id": file_id
+            })
     
     
     try:
@@ -55,6 +64,7 @@ async def Upload_file(file: UploadFile,
         status_code=status.HTTP_200_OK,
         content={
             "signal": ResponseSignal.FILE_UPLOAD_SUCCESS.value,
-            "file_id": file_id
+            "file_id": file_id,
+            "new_file_path":new_file_path,
         }
     )    

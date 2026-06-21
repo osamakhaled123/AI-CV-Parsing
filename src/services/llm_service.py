@@ -15,6 +15,7 @@ def call_llm(prompt: str):
         },
         json={
             "model": app_settings.OPENROUTER_MODEL,
+            "temperature": 0,
             "messages": [
                 {
                     "role": "user",

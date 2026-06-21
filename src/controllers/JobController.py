@@ -6,6 +6,7 @@ from services.prompt_builder import load_job_description, build_prompt
 from services.llm_service import call_llm
 from models import ResponseSignal, ProcessingEnum
 
+
 class JobController(BaseController):
     def __init__(self):
         super().__init__()
@@ -54,13 +55,12 @@ class JobController(BaseController):
         job_description = load_job_description()
         
         for file in os.listdir(UPLOAD_DIR):
-        
+            
             with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                filenames = self.get_files_names(json_file=json_file)
-                if file[ProcessingEnum.RANDOM_KEY_LEN.value+1:] in filenames:
-                    continue
             
+            filenames = [objects_["filename"] 
+                for objects_ in data]
             
             file_path = os.path.join(
                 UPLOAD_DIR,
@@ -77,9 +77,14 @@ class JobController(BaseController):
 
             with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                
-            data.append(llm_response)
             
+            
+            if llm_response["filename"] in filenames:
+                continue
+            
+            else:
+                print(llm_response) 
+                data.append(llm_response)
             
             with open(json_file, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4)    
