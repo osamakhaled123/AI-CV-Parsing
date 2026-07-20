@@ -10,3 +10,4 @@ class ResponseSignal(Enum):
     
     NO_CVS_FOUND =  "no_CVs_found"
     CVS_PARSED_SUCCESS = "CVs_parsed_successfully"
+    NO_PHONE_NUMBER_FOUND = "no_phone_number_found"

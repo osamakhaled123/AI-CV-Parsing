@@ -1,9 +1,7 @@
 from helpers.config import get_settings, Settings
 from fastapi import UploadFile
 import os
-import random
-import string
-from models import ProcessingEnum
+from models import ResponseSignal
 import pdfplumber
 import re
 import io
@@ -16,12 +14,6 @@ class BaseController:
         self.files_dir = os.path.join(self.assets_dir, "files")
         self.cvs_dir = os.path.join(self.assets_dir, "CVs")
         self.parsed_cvs_dir = os.path.join(self.assets_dir, "parsed_CVs")
-        
-        
-    def generate_random_string(self):
-        return ''.join(random.choices(string.ascii_lowercase + string.digits, 
-                                      k=ProcessingEnum.RANDOM_KEY_LEN.value))
-    
     
     async def get_phone_number(self, file: UploadFile):
         phone_pattern = r'(?:\+?\d{1,3}[-.\s]?)?\(?\d{2,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,6}'
@@ -38,4 +30,4 @@ class BaseController:
                     if match:
                         return match.group().strip()
             
-        return self.generate_random_string()
+        return ResponseSignal.NO_PHONE_NUMBER_FOUND.value
